@@ -1,0 +1,35 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.input, .textarea {
+  padding: 8px;
+  background: transparent;
+  border: 2px solid gray;
+  font-size: 18px;
+  color: #ededed;
+  border-radius: 10px;
+}
+.textarea {
+  min-height: 100px;
+  max-height: 580px;
+  resize: vertical;
+  margin: 15px 0;
+}
+.button {
+  padding: 10px;
+  background: #8c7ae6;
+  border: none;
+  font-size: 21px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.button:hover {
+  box-shadow: 0 0 18px #826deb;
+}
