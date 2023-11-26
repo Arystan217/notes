@@ -5,16 +5,31 @@
   box-sizing: border-box;
   box-shadow: 0 0 10px #444;
   background: #444;
-  font-size: 23px;
   cursor: pointer;
   margin-bottom: 1.25%;
   transition: all 0.2s ease;
-  color: #ededed;
   margin-right: 1.25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .note:nth-child(3n) {
   margin-right: 0;
 }
 .note:hover {
   background: #4e4e4e;
+}
+.noteBody {
+  font-size: 23px;
+  color: #ededed;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.deleteIcon {
+  width: 30px;
+  transition: all 0.45s ease;
+  opacity: 0;
+}
+.note:hover .deleteIcon {
+  opacity: 1;
 }

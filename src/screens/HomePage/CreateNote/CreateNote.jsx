@@ -8,7 +8,6 @@ const CreateNote = ( {createNote} ) => {
   const [body, setBody] = useState("")
 
   const sendNote = e => {
-    console.log(body)
     createNote(addNoteActionCreator(title, body))
   }
 

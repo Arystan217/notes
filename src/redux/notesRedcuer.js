@@ -1,15 +1,10 @@
 const ADD_NOTE = "ADD-NOTE"
 const OPEN_NOTE = "OPEN-NOTE"
-const SAVE_NOTE = "SAVE-NOTE"
+const DELETE_NOTE = "DELETE-NOTE"
+import { nanoid } from "nanoid"
 
 const initialState = {
-  notesList: [
-    {
-      id: 1,
-      title: "Note 1",
-      body: "Hello world!"
-    }
-  ],
+  notesList: [],
   openedNote: null,
 }
 
@@ -17,27 +12,19 @@ const notesReducer = (state = initialState, action) => {
   switch(action.type) {
     case ADD_NOTE:
       if (action.title.trim() && action.body.trim()) {
-        console.log(action.body)
         const newNote = {
-          id: state.notesList.length + 1,
+          id: nanoid(),
           title: action.title,
           body: action.body
         }
-        console.log(newNote)
         state.notesList.push(newNote)
       }
       return state
     case OPEN_NOTE:
       state.openedNote = state.notesList.filter(note => note.id == action.id)[0]
       return state
-    case SAVE_NOTE:
-      state.notesList.forEach(note => {
-        console.log(action.id)
-        if (note.id === action.id) {
-          note.title = action.title
-          note.body = action.body
-        }
-      })
+    case DELETE_NOTE:
+      state.notesList = (state.notesList.filter(note => note.id !== action.id)) // filter returns all that satisfies this condition (it's my comment, not chatGPT)
       return state
     default: 
       return state
@@ -56,9 +43,7 @@ export const openNoteActionCreator = id => ({
   type: OPEN_NOTE,
   id: id
 })
-export const saveNoteActionCreator = (id, title, body) => ({
-  type: SAVE_NOTE,
-  id: id,
-  title: title,
-  body: body
+export const deleteNoteActionCreator = id => ({
+  type: DELETE_NOTE,
+  id: id
 })

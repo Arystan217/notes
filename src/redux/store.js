@@ -8,5 +8,6 @@ const reducers = combineReducers({
 const store = createStore(reducers)
 
 window.store = store
+window.notesList = store.getState().notes.notesList
 
 export default store
