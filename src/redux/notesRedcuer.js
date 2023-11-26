@@ -17,11 +17,13 @@ const notesReducer = (state = initialState, action) => {
   switch(action.type) {
     case ADD_NOTE:
       if (action.title.trim() && action.body.trim()) {
+        console.log(action.body)
         const newNote = {
           id: state.notesList.length + 1,
           title: action.title,
           body: action.body
         }
+        console.log(newNote)
         state.notesList.push(newNote)
       }
       return state

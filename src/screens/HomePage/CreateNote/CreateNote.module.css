@@ -16,6 +16,7 @@
   max-height: 580px;
   resize: vertical;
   margin: 15px 0;
+  white-space: pre-wrap;
 }
 .button {
   padding: 10px;

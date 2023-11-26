@@ -8,6 +8,7 @@ const CreateNote = ( {createNote} ) => {
   const [body, setBody] = useState("")
 
   const sendNote = e => {
+    console.log(body)
     createNote(addNoteActionCreator(title, body))
   }
 
@@ -30,7 +31,6 @@ const CreateNote = ( {createNote} ) => {
         placeholder="Enter the body:"
         value={body}
         onChange={e => setBody(e.target.value)}
-        onKeyDown={keyPressHandler}
         className={styles.textarea}
       ></textarea>
       <button
