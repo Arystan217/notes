@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./NotePage.module.css";
 import { useNavigate } from "react-router-dom";
 import arrow from "../../assets/arrow.png";
-import { addNoteActionCreator } from "../../redux/notesRedcuer";
 
-const NotePage = ({ note, dispatch }) => {
+const NotePage = ({ note }) => {
   const navigate = useNavigate();
 
   return (

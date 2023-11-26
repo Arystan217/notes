@@ -8,7 +8,7 @@ const App = ({ store }) => {
   return (
     <Routes>
       <Route path="*" element={<Home store={store} />} />
-      <Route path="/note" element={<NotePage note={store.getState().notes.openedNote} dispatch={store.dispatch} />} />
+      <Route path="/note" element={<NotePage note={store.getState().notes.openedNote} />} />
     </Routes>
   );
 };
