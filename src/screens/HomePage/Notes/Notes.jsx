@@ -8,7 +8,7 @@ const Notes = ( {notesList, dispatch} ) => {
       {notesList.length ? (
         notesList.map(note => <Note index={note.id} key={note.id} title={note.title} dispatch={dispatch} />)
       ) : (
-        <p className={styles.noNotes}>There're no notes yet.</p>
+        <p className={styles.noNotes}>You don't have notes yet...</p>
       )}
     </div>
   )
