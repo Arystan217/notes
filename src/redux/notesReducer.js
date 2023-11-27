@@ -11,13 +11,15 @@ const initialState = {
 const notesReducer = (state = initialState, action) => {
   switch(action.type) {
     case ADD_NOTE:
-      if (action.title.trim() && action.body.trim()) {
+      if (action.title.trim()) {
+        let body = action.body
+        if (!action.body.trim()) body = ""
         const newNote = {
           id: nanoid(),
           title: action.title,
-          body: action.body
+          body: body
         }
-        state.notesList.push(newNote)
+        state.notesList.unshift(newNote)
       }
       return state
     case OPEN_NOTE:

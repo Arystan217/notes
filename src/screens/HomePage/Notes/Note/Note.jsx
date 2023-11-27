@@ -1,6 +1,6 @@
 import React from "react"
 import styles from "./Note.module.css"
-import { deleteNoteActionCreator, openNoteActionCreator } from "../../../../redux/notesRedcuer"
+import { deleteNoteActionCreator, openNoteActionCreator } from "../../../../redux/notesReducer"
 import { useNavigate } from "react-router-dom"
 import deleteIcon from "./../../../../assets/delete.png"
 

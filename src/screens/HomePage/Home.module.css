@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.button {
+  padding: 11px 10px 10px;
+  text-align: center;
+  background: #8c7ae6;
+  border: none;
+  font-size: 21px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-top: 30px;
+}
+.button:hover {
+  box-shadow: 0 0 18px #826deb;
+}

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styles from "./CreateNote.module.css"
-import { addNoteActionCreator } from "../../../redux/notesRedcuer"
+import { addNoteActionCreator } from "../../../redux/notesReducer"
 
 const CreateNote = ( {createNote} ) => {
 

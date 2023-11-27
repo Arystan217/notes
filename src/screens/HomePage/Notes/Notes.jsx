@@ -5,7 +5,11 @@ import Note from "./Note/Note"
 const Notes = ( {notesList, dispatch} ) => {
   return (
     <div className={styles.notes}>
-      {notesList.map(note => <Note index={note.id} key={note.id} title={note.title} dispatch={dispatch} />)}
+      {notesList.length ? (
+        notesList.map(note => <Note index={note.id} key={note.id} title={note.title} dispatch={dispatch} />)
+      ) : (
+        <p className={styles.noNotes}>There're no notes yet.</p>
+      )}
     </div>
   )
 }

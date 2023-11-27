@@ -1,12 +1,14 @@
 import React from "react"
-import styles from "./Home.module.css"
+import { Link } from "react-router-dom"
 import CreateNote from "./CreateNote/CreateNote"
 import Notes from "./Notes/Notes"
+import NoteCreatingPage from "../NoteCreatingPage/NoteCreatingPage"
+import styles from "./Home.module.css"
 
 const Home = ( {store} ) => {
   return (
-    <div className="container">
-      <CreateNote createNote={store.dispatch} />  
+    <div className={`container ${styles.wrapper}`}>
+      <Link to="/creatingNote" className={styles.button}>create note</Link>
       <Notes notesList={store.getState().notes.notesList} dispatch={store.dispatch} />
     </div>
   )

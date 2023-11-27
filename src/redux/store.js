@@ -1,5 +1,5 @@
 import { combineReducers, createStore } from "redux";
-import notesReducer from "./notesRedcuer";
+import notesReducer from "./notesReducer";
 
 const reducers = combineReducers({
   notes: notesReducer

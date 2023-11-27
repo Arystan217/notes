@@ -1,0 +1,5 @@
+TODO:
+1. Create textarea like inputs in editing
+2. ability to change body of already created note
+3. protect of pasting styles
+4. print message that there is no notes currently
