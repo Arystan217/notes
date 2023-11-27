@@ -10,7 +10,7 @@ const App = ({ store }) => {
     <Routes>
       <Route path="*" element={<Home store={store} />} />
       <Route path="/creatingNote" element={<NoteCreatingPage dispatch={store.dispatch} />} />
-      <Route path="/note" element={<NotePage note={store.getState().notes.openedNote} />} />
+      <Route path="/note" element={<NotePage dispatch={store.dispatch} note={store.getState().notes.openedNote} />} />
     </Routes>
   );
 };

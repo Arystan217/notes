@@ -26,7 +26,6 @@ const NoteCreatingPage = ( {dispatch} ) => {
   const handleSaveNote = () => {
     if (title.current.innerText.trim()) {
       dispatch(addNoteActionCreator(title.current.innerText, body.current.innerText))
-      title.current.innerText = ""
       navigate("/home")
       console.log("successfully added")
     }
@@ -37,7 +36,6 @@ const NoteCreatingPage = ( {dispatch} ) => {
       <div className="container">
       <img src={arrow} onClick={() => navigate("/home")} className={styles.backButton} />
         <div className={styles.content}>
-          {/* <textarea className={styles.title}></textarea> */}
           <p 
             className={`${styles.title} ${isEmptyTitle && styles.emptyTitle}`} 
             ref={title} 

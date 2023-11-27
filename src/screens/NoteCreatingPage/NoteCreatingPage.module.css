@@ -13,7 +13,7 @@
   background: transparent;
   color: #cfcfcf;
   cursor: text;
-
+  white-space: pre-wrap;
 }
 .body {
   margin-top: 40px;
@@ -29,6 +29,7 @@
   resize: none;
   min-height: 70px;
   cursor: text;
+  white-space: pre-wrap;
 }
 .button {
   margin-top: 20px;
@@ -60,6 +61,6 @@
   color: #6e6e6e;
 }
 .emptyBody::before {
-  content: "Start writing";
+  content: "Start typing...";
   color: #6e6e6e;
 }

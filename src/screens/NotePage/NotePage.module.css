@@ -1,29 +1,66 @@
-.wrapper {
-  padding-bottom: 40px;
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 10px;
 }
 .title {
-  font-size: 45px;
-  text-align: center;
-  color: #fff;
-  margin-top: 30px;
-  font-weight: 600;
-}
-.body {
-  margin-top: 10px;
-  font-size: 20px;
-  color: #dedede;
+  width: 100%;
+  border: none;
+  font-size: 55px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  background: transparent;
+  color: #cfcfcf;
+  cursor: text;
   white-space: pre-wrap;
 }
-
-.error {
-  color: brown;
-  font-size: 50px;
-  text-align: center;
-  margin-top: 50px;
+.body {
+  margin-top: 40px;
+  width: 100%;
+  border: none;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  background: transparent;
+  color: #bebebe;
+  height: auto;
+  overflow-y: hidden;
+  resize: none;
+  min-height: 70px;
+  cursor: text;
+  white-space: pre-wrap;
 }
-
+.button {
+  margin-top: 20px;
+  padding: 10px 40px;
+  background: #8c7ae6;
+  border: none;
+  font-size: 21px;
+  font-weight: 600;
+  color: #333;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 30px;
+}
+.button:hover {
+  box-shadow: 0 0 14px #826deb;
+}
 .backButton {
   margin-top: 10px;
   height: 50px;
   cursor: pointer;
+}
+
+
+.emptyTitle::before {
+  content: "Enter the title";
+  color: #6e6e6e;
+}
+.emptyBody::before {
+  content: "Start typing...";
+  color: #6e6e6e;
 }
