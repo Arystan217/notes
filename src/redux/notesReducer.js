@@ -5,8 +5,8 @@ const DELETE_NOTE = "DELETE-NOTE"
 import { nanoid } from "nanoid"
 
 const initialState = {
-  notesList: [{id: 'PpW9igOUDkt1eMxlBfko0', title: 'saved note', body: 'hello, i am here'}],
-  openedNote: {id: 'PpW9igOUDkt1eMxlBfko0', title: 'opened note', body: ''},
+  notesList: [{id: '_IAHarj4EUoTSXf8LXWLv', title: 'i', body: '\\'}],
+  openedNote: {id: '_IAHarj4EUoTSXf8LXWLv', title: 'i', body: '\\'},
 }
 
 const notesReducer = (state = initialState, action) => {
@@ -28,16 +28,16 @@ const notesReducer = (state = initialState, action) => {
       return state
     case EDIT_NOTE:
       state.notesList.forEach(note => {
-        if (note.id === action.id) {
+        if (note.id === state.openedNote.id) {
           note.title = action.title
           note.body = action.body
         }
       })
-      /* state.openedNote = {
-        id: action.id,
+      state.openedNote = {
+        id: state.openedNote.id,
         title: action.title,
         body: action.body
-      } */
+      }
       return state
     case DELETE_NOTE:
       state.notesList = (state.notesList.filter(note => note.id !== action.id)) // filter returns all that satisfies this condition (it's my comment, not chatGPT)
@@ -59,11 +59,10 @@ export const openNoteActionCreator = id => ({
   type: OPEN_NOTE,
   id: id
 })
-export const editNoteActionCreator = (id, title, body) => ({
+export const editNoteActionCreator = (title, body) => ({
   type: EDIT_NOTE,
-  id: id,
-  title: title,
-  body: body  //todo: minimize code
+  title,
+  body
 })
 export const deleteNoteActionCreator = id => ({
   type: DELETE_NOTE,

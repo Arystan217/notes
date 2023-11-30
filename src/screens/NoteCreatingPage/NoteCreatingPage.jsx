@@ -1,35 +1,16 @@
-import React, { createRef, useState } from "react"
-import styles from "./NoteCreatingPage.module.css"
-import { addNoteActionCreator } from "../../redux/notesReducer"
+import React from "react"
 import { useNavigate } from "react-router-dom"
+import styles from "./NoteCreatingPage.module.css"
 import arrow from "./../../assets/arrow.png"
 
-const NoteCreatingPage = ( {dispatch} ) => {
-
-  const [isEmptyTitle, setIsEmptyTitle] = useState(true)
-  const [isEmptyBody, setIsEmptyBody] = useState(true)
-
-  const title = createRef()
-  const body = createRef()
-
-  const handleTitleChange = () => {
-    if (!title.current.innerText.trim()) setIsEmptyTitle(true)
-    else setIsEmptyTitle(false)
-  }
-  const handleBodyChange = () => {
-    if (!body.current.innerText.trim()) setIsEmptyBody(true)
-    else setIsEmptyBody(false)
-  }
-
-
+const NoteCreatingPage = ( {titleRef, bodyRef, handleTitleChange, handleBodyChange, isEmptyTitle, isEmptyBody, handleSaveNote} ) => {
   const navigate = useNavigate()
-  const handleSaveNote = () => {
-    if (title.current.innerText.trim()) {
-      dispatch(addNoteActionCreator(title.current.innerText, body.current.innerText))
-      navigate("/home")
-      console.log("successfully added")
-    }
-  }
+
+  const handlePaste = (event) => {
+    event.preventDefault();
+    const text = event.clipboardData.getData("text/plain");
+    document.execCommand("insertText", false, text);
+  };
 
   return (
     <div className={styles.wrapper}>
@@ -38,14 +19,16 @@ const NoteCreatingPage = ( {dispatch} ) => {
         <div className={styles.content}>
           <p 
             className={`${styles.title} ${isEmptyTitle && styles.emptyTitle}`} 
-            ref={title} 
+            ref={titleRef} 
             onInput={handleTitleChange}
+            onPaste={handlePaste}
             contentEditable 
           ></p>
           <p 
             className={`${styles.body} ${isEmptyBody && styles.emptyBody}`} 
-            ref={body}
+            ref={bodyRef}
             onInput={handleBodyChange}
+            onPaste={handlePaste}
             contentEditable 
           ></p>
           <button className={styles.button} onClick={handleSaveNote}>Save note</button>

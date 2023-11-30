@@ -1,16 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import "./assets/styles/global.css";
 import Home from "./screens/HomePage/Home";
-import NotePage from "./screens/NotePage/NotePage";
-import NoteCreatingPage from "./screens/NoteCreatingPage/NoteCreatingPage";
+import NotePageContainer from "./screens/NotePage/NotePageContainer";
+import NoteCreatingPageContainer from "./screens/NoteCreatingPage/NoteCreatingPageContainer";
 
-const App = ({ store }) => {
+const App = ({store}) => {
 
   return (
     <Routes>
-      <Route path="*" element={<Home store={store} />} />
-      <Route path="/creatingNote" element={<NoteCreatingPage dispatch={store.dispatch} />} />
-      <Route path="/note" element={<NotePage dispatch={store.dispatch} note={store.getState().notes.openedNote} />} />
+      <Route path="*" element={<Home />} /> {/* DONE */}
+      <Route path="/creatingNote" element={<NoteCreatingPageContainer />} /> {/* DONE */}
+      <Route path="/note" element={<NotePageContainer />} />
     </Routes>
   );
 };
